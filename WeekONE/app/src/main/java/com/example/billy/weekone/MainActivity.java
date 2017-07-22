@@ -14,8 +14,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText mTitleEditText;
     private EditText mContentEditText;
     private Button mButton;
-    public String mTitle;
-    public String mContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,17 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // TODO : fix below
-        if( savedInstanceState == null ){
-//            String text = getIntent().getStringExtra("Item");
-//            mTextView.setText(text);
-            String title =  getIntent().getStringExtra("title");
-            String content =  getIntent().getStringExtra("content");
-            mTitle = title;
-            mContent = content;
-            mTitleEditText.setText(title);
-            mContentEditText.setText(content);
 
-        }
 
     }
 }

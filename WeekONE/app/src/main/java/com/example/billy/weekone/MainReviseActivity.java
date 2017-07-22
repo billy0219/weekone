@@ -17,7 +17,7 @@ public class MainReviseActivity extends AppCompatActivity {
     private EditText mContentEditText2;
     private Button mButton4;
     private Button mButton5;
-    public String mTitle;
+    private String mTitle;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,9 +68,18 @@ public class MainReviseActivity extends AppCompatActivity {
                 finish();
             }
         };
-
-        mButton5.setOnClickListener(thirdOnClickListener);
         mButton4.setOnClickListener(FourthOnClickListener);
+        mButton5.setOnClickListener(thirdOnClickListener);
 
+        if( savedInstanceState == null ){
+//            String text = getIntent().getStringExtra("Item");
+//            mTextView.setText(text);
+            String title =  getIntent().getStringExtra("title");
+            String content =  getIntent().getStringExtra("content");
+            mTitle = title;
+            mTitleEditText2.setText(title);
+            mContentEditText2.setText(content);
+
+        }
     }
 }
