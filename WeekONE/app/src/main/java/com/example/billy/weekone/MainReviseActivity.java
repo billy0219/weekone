@@ -18,6 +18,7 @@ public class MainReviseActivity extends AppCompatActivity {
     private Button mButton4;
     private Button mButton5;
     private String mTitle;
+    private String mContent;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +40,13 @@ public class MainReviseActivity extends AppCompatActivity {
                 mTitleEditText2.setText("");
                 mContentEditText2.setText("");
 
+                // Add New Data
                 Realm.init(getApplicationContext());
                 Realm realm = Realm.getDefaultInstance();
 
                 // transaction
                 realm.beginTransaction();
-                Article article = realm.createObject(Article.class);
+                Article article = realm.where(Article.class).equalTo("title", mTitle).findFirst();
                 article.setTitle(titleText);
                 article.setContent(contentText);
                 realm.commitTransaction();
@@ -77,6 +79,7 @@ public class MainReviseActivity extends AppCompatActivity {
             String title =  getIntent().getStringExtra("title");
             String content =  getIntent().getStringExtra("content");
             mTitle = title;
+            mContent = content;
             mTitleEditText2.setText(title);
             mContentEditText2.setText(content);
 
